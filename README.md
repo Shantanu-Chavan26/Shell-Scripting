@@ -1,0 +1,1 @@
+This repository contains various projects written in Bash shell scripting. The primary purpose of these projects is to provide practical examples and exercises to enhance understanding and proficiency in shell scripting.
