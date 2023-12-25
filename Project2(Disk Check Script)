@@ -1,0 +1,22 @@
+To get info on a specific row when it reached 90% space it shows a msg of critical pointing to the particular file:
+#!/bin/bash
+
+df -H | awk '{print $1, $5}' | while read output; do
+    usage=$(echo $output | awk '{print $2}' | cut -d '%' -f1)
+    file_sys=$(echo $output | awk '{print $1}')
+
+    if [ $usage -ge 90 ]; then
+        echo "Critical usage on $file_sys: $usage%"
+    fi
+done
+
+#OUTPUT
+ubuntu@ip-172-31-47-8:~/Shan/projects$ chmod 777 project33.sh
+ubuntu@ip-172-31-47-8:~/Shan/projects$ ./project33.sh
+./project33.sh: line 7: [: Use: integer expression expected
+Critical usage on /dev/loop0: 100%
+Critical usage on /dev/loop2: 100%
+Critical usage on /dev/loop1: 100%
+Critical usage on /dev/loop3: 100%
+Critical usage on /dev/loop4: 100%
+Critical usage on /dev/loop5: 100%
