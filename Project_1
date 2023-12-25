@@ -1,0 +1,15 @@
+#!/bin/bash
+
+#*****Simple Password Generator*****
+
+echo "Project 1 initiation"
+
+sleep 3
+
+echo "Enter the length of the password:"
+read Pass_Length
+
+for p in $(seq 50);
+do
+      openssl rand -base64 48 | cut -c1-$Pass_Length
+done
